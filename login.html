@@ -1,0 +1,56 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="logincss.css">
+            <script src="wscript.js"></script>
+            <title>login</title>
+        </head>
+        <body>
+              <div class="body">
+            <form id="login">
+            <fieldset>
+                <h1> login</h1>
+                <div class="input-group">
+                <label for="username">Username = </label>
+                <input type="username" id="username" name="username" placeholder="Enter your username.." autocomplete="off" required>
+                <i class='bx bx-user'></i>
+                <br><br>
+                </div>
+                <div class="input-group">
+                <label for="password">Password = </label>
+                <input type="password" id="password" name="password" placeholder="Password" autocomplete="off" required><br><br>
+                </div>
+                <button type="button" onclick="login()">Submit</button>
+                
+            </fieldset>
+        </form>
+    </div>
+        <script>
+            function login()
+{
+    
+
+    const username=document.getElementById("username").value
+    const password=document.getElementById("password").value
+    
+    if(!username && !password)
+    {
+        alert("enter the folowing details")
+        return false
+    }
+    if(username=="danielcs" && password=="ishowlag")
+    {
+        window.location.href="http://127.0.0.1:5500/fixtures/namentry.html";
+    }
+    else{
+        alert("invalid username or password")
+    }
+    
+}
+
+
+
+        </script>
+    
+        </body>
+    </html>

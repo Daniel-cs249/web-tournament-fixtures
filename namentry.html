@@ -1,0 +1,216 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+        
+            <style>
+                body {
+                    background-image: url('2.jpg');
+                    background-size: cover;
+                    
+                    height: 100vh;
+                    margin: 0;
+                    font-family: Arial, sans-serif; /* Default font for the body */
+                }
+
+
+                label {
+                    font-family: cursive;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #000;
+                }
+
+                /* Ensure widths are correctly set */
+                #name1, #name2 {
+                    width: 200px;
+                }
+
+                #gender {
+                    width: 120px; /* Adjust width if needed */  
+                }
+
+                input[type="text"]{
+                    font-family:cursive; 
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-style: italic;
+                    color: #333;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                    box-sizing: border-box; /* Include padding and border in the width */
+                    border: 2px solid #b92929; /* Change border color */
+                   
+                }
+
+                fieldset {
+                    width: 30%;
+                    box-shadow: #000;
+                    border-radius: 20px ;
+                    position:relative;
+                    left: 20px;
+                    border: 3px solid rgba(31, 44, 147); 
+                    padding: 10px;
+                    background-color: rgba(255, 255, 255,0.5); 
+                }
+                .submit-button {
+                    font-size: 20px;
+                    width: 125px;
+                    height: 40px; 
+                    background-color: #4CAF50; 
+                    color: white;
+                    align-items: center; 
+                    border-radius: 20px; 
+                    cursor: pointer; 
+                    transition: background-color 0.3s;
+                    position: absolute;
+                    left:450px;
+                }
+                .container
+                {
+                   top: 0%;
+                   right: 0%;
+                   position: absolute;
+                   width: 40%;
+                   height: 100vh;
+
+                   
+                }
+                .popup
+                {
+                    display: flex;
+                    width: 100%;
+                    height: 50vh;
+                    top:0%;
+                    align-items: center;
+                    flex-direction: column; 
+                    transform: translate(0%,-50%) scale(0.1);
+                    visibility: hidden;
+                    transition:transform 0.4s , top 0.4s;
+                }
+                .open-popup
+                {
+                    visibility: visible;
+                    transform: scale(1);
+                    top:0%;
+                }
+                .popup button{
+                    border-radius: 10px;
+                    background-color: #4CAF50;
+                }
+                .popup img
+                {
+                  
+                    width: 40%;
+                    height: auto;
+                }
+                .popup h4,h3,h2{
+                    color: #ccc;
+                }
+
+
+            </style>
+            
+        </head>
+        <body>
+            <form onsubmit="handlesubmit(event)">
+                <h2>Enter the details</h2>
+
+                <fieldset>  
+                    <label for="name1">Player 1</label><br>
+                    <input type="text" id="name1" name="player1" placeholder="name1" autocomplete="off"><br>
+                    <label for="gender1">Gender</label>
+                    <select id="gender1" name="gender1">
+                        <option>select</option>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </fieldset>
+
+                <br><br>
+
+                <fieldset>
+                    <label for="name2">Player 2</label><br>
+                    <input type="text" id="name2" name="player2" placeholder="name" autocomplete="off"><br>
+                    <label for="gender2">Gender</label>
+                    <select id="gender2" name="gender2">
+                        <option>select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </fieldset>
+
+                <br><br>
+
+                <fieldset>
+                    <h4>Did you pay the entrance fees?</h4>
+                    <input type="checkbox"  id="fee1" name="fee1">
+                    <label for="fee1">YES</label><br>
+                    <input type="checkbox" id="fee2" name="fee2">
+                    <label for="fee2" >NO</label><br>
+                </fieldset>
+
+                <br><br>
+
+                <fieldset>
+                    <h4>Select the type of shuttle</h4>
+                    <input type="radio" id="feather" name="cork">
+                    <label for="feather">Feather</label><br>
+                    <input type="radio" id="nylon" name="cork">
+                    <label for="nylon">Nylon</label><br>
+                </fieldset>
+
+                <input type="submit" value="Submit" class="submit-button">
+                
+
+            </form>
+            <div class="container">
+                <div class="popup" id="popup">
+                    <img src="qr.jpeg">
+                    <h4>Scan here</h4>
+                    <h3>Gpay,phonpe,paytm</h3>
+                    <button type="button" onclick="paid()">submit</button>
+                </div>
+
+            </div>
+            </div>
+            <script>
+                var popup=document.getElementById("popup")
+                function handlesubmit()
+                {
+                    event.preventDefault()
+                    var yes=document.getElementById("fee1").checked
+                    var no=document.getElementById("fee2").checked
+
+                    if(no)
+                    {
+                    notpaid()
+                    }
+                    else
+                    {
+                    var nylon=document.getElementById("nylon").checked
+                    var feather=document.getElementById("feather").checked
+                    if(nylon)
+                    {
+                    window.location.href="http://127.0.0.1:5500/fixtures/nylon.html"
+                    }
+                    if(feather)
+                    {
+                        window.location.href="http://127.0.0.1:5500/fixtures/feather.html"
+                    }
+                    }
+                    
+                }
+                function notpaid()
+                {
+                    popup.classList.add("open-popup")
+                }
+                function paid()
+                {
+                    popup.classList.remove("open-popup")
+                }
+                
+            </script>
+        </body>
+        </html>
