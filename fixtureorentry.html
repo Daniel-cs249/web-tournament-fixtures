@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            background-image: url('foresr.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .menu {
+            background-color: rgba(120, 234, 179, 0.7);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+
+        .menu ul li {
+            position: relative;
+            padding: 15px;
+            margin: 0 10px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .menu ul li:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact {
+            background-color: rgba(194, 191, 186, 0.7);
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin: 0;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .menu ul li:hover .contact {
+            display: block;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        .contact ul li {
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .contact ul li a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        .contact ul li:hover {
+            background-color: rgba(140, 246, 186, 0.5);
+        }
+
+        .menu ul li:hover .contact ul {
+            display: block;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#"><i class="fa fa-house"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-user"></i> Signin</a></li>
+            <li>
+                <a href="#" aria-label="Contact"><i class="fa fa-address-book"></i> Contact</a>
+                <div class="contact">
+                    <ul>
+                        <li><a href="#"><i class="fa-duotone fa-solid fa-phone"></i><b> 6379819964</b></a></li>
+                        <li><a href="#"><b><i class="fa-duotone fa-solid fa-paper-plane"></i>daniel.cs249@gmail.com</b></a></li>
+                        <li><a href="#"><b><i class="fa-solid fa-circle-question"></i>FAQ</b></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-bars"></i> Fixtures</a></li>
+            <li><a href="#"><i class="fa fa-pen"></i> Register</a></li>
+        </ul>
+    </div>
+    <script>
+        // Function to display an alert when the "Contact" item is clicked
+        function Register() {
+            window.location.href ='http://127.0.0.1:5500/fixtures/namentry.html';
+        }
+
+        // Function to redirect to another page for "Sign in"
+        function goToSignIn() {
+            window.location.href = 'http://127.0.0.1:5500/fixtures/login.html'; // Change this to the page you want to redirect to
+        }
+
+        // Function to redirect to another page for "Home"
+        function goTofixture() {
+            window.location.href = 'http://127.0.0.1:5500/fixtures/fixturetb.html   '; // Change this to the page you want to redirect to
+        }
+
+        // Attach event listeners to the menu items
+        document.querySelector('.menu ul li:nth-child(5) a').addEventListener('click', Register); // Contact
+        document.querySelector('.menu ul li:nth-child(4) a').addEventListener('click', goTofixture); // Home
+        document.querySelector('.menu ul li:nth-child(2) a').addEventListener('click', goToSignIn); // Sign in
+    </script>
+</body>
+
+</html>
